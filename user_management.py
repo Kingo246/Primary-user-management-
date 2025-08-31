@@ -9,7 +9,6 @@ class User:
         self.password=password
         self.status=status
     def display_users(self):
-        print("displaying all users....")
         time.sleep(2)
         print(f"first name:{self.first_name}")
         print(f"last name:{self.last_name}")
@@ -22,7 +21,6 @@ def user_info():
     Last_name=input("enter the last name:")
     Email=input("enter your email:")
     Password=input("enter your password:")
-    print("user added successfully!")
     return User(First_name,Last_name,Email,Password)
 def clear_terminal():
     os.system("cls") if os.name=="nt" else os.system("clear")
@@ -34,12 +32,18 @@ while True:
     print("3. Exit")
     choice=input("enter your choice:")
     if choice=="1":
-        user_profile=user_info()
-        users.append(user_profile)
+        users.append(user_info())
+        print("user added successfully!")
     elif choice=="2":
         clear_terminal()
-        user_profile.display_users()           
+        if users:
+            print("displaying all users....")
+            for I in users:
+                I.display_users()    
+        else:
+            print("sorry,we didn't found anything to display for you")       
     elif choice=="3":
+        print("exiting....")    
         break
     else:
         print("invalid choice, please choice between 1 and 3")        
