@@ -42,6 +42,6 @@ while True:
     elif choice=="3":
         break
     else:
-        print("invalid choice, please choice between 1 and 4")        
+        print("invalid choice, please choice between 1 and 3")        
         
            
